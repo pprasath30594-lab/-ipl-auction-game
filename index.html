@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IPL Live Auction</title>
+<style>
+body{margin:0;background:#101827;color:white;font-family:Arial;text-align:center}
+header{background:#172b50;padding:20px;font-size:25px;font-weight:bold}
+.box{background:#1e293b;margin:15px;padding:20px;border-radius:15px}
+input,button{padding:13px;margin:7px;border:0;border-radius:8px;font-size:16px}
+button{background:#ffb300;color:#111;font-weight:bold}
+.team{display:flex;justify-content:space-around;gap:10px}
+.team div{background:#263b59;padding:15px;border-radius:10px;width:45%}
+</style>
+</head>
+<body>
+<header>🏏 IPL LIVE AUCTION</header>
+
+<div class="box">
+<h2>Create Auction Room</h2>
+<input id="room" placeholder="Room Code">
+<input id="name" placeholder="Your Name">
+<button onclick="join()">JOIN ROOM</button>
+<p id="status"></p>
+</div>
+
+<div class="box">
+<h2>🏆 Teams</h2>
+<div class="team">
+<div>TEAM 1<h3 id="t1">Waiting</h3></div>
+<div>TEAM 2<h3 id="t2">Waiting</h3></div>
+</div>
+</div>
+
+<div class="box">
+<h2>Player Auction</h2>
+<h2>Virat Kohli</h2>
+<p>Base Price: ₹2 Crore</p>
+<h1 id="bid">₹2 Crore</h1>
+<button onclick="increase()">BID + ₹50 L</button>
+</div>
+
+<script>
+let amount=2;
+function join(){
+let r=document.getElementById("room").value;
+let n=document.getElementById("name").value;
+if(!r||!n){alert("Enter room code and name");return;}
+document.getElementById("status").innerText="Welcome "+n+"! Room: "+r;
+document.getElementById("t1").innerText=n;
+}
+function increase(){
+amount+=0.5;
+document.getElementById("bid").innerText="₹"+amount+" Crore";
+}
+</script>
+</body>
+</html>
